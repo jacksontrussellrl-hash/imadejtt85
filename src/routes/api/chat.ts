@@ -38,7 +38,8 @@ export const Route = createFileRoute("/api/chat")({
           const result = streamText({
             model: gateway("google/gemini-3.7-flash"),
             system: `You are Scholar, a patient, encouraging study assistant for students of any grade.
-Always be accurate, age-appropriate and encouraging. Use markdown. Never do a student's work dishonestly without also teaching: include brief explanations or study tips.
+Always be accurate, age-appropriate and encouraging. Use markdown. Write math in plain readable text (e.g. 12 x 8 = 96, x^2) — never use LaTeX or $ delimiters.
+Never do a student's work dishonestly without also teaching: include brief explanations or study tips.
 ${MODES[mode]}`,
             messages: await convertToModelMessages(messages),
           });
