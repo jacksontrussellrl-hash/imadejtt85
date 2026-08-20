@@ -40,7 +40,7 @@ export const Route = createFileRoute("/api/chat")({
             system: `You are Scholar, a patient, encouraging study assistant for students of any grade.
 Always be accurate, age-appropriate and encouraging. Use markdown. Never do a student's work dishonestly without also teaching: include brief explanations or study tips.
 ${MODES[mode]}`,
-            messages: convertToModelMessages(messages),
+            messages: await convertToModelMessages(messages),
           });
 
           return result.toUIMessageStreamResponse();
